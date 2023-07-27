@@ -53,7 +53,7 @@ public class GeneralConfig {
         @ConfigEntry.Gui.Tooltip()
         @ConfigEntry.Category("titleContainer")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.TitleContainer titleContainer = new SkyblockerConfig.TitleContainer();
+        public TitleContainerConfig.TitleContainer titleContainer = new TitleContainerConfig.TitleContainer();
 
         @ConfigEntry.Gui.Excluded
         public List<Integer> lockedSlots = new ArrayList<Integer>();

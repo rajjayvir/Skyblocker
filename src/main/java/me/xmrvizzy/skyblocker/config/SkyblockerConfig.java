@@ -16,7 +16,8 @@ import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.lit
 @Config(name = "skyblocker")
 public class SkyblockerConfig implements ConfigData {
 
-    public final TabHudConfConfig tabHudConfConfig = new TabHudConfConfig();
+    public final TabHudConfConfigc tabHudConfConfigc = new TabHudConfConfigc();
+    public final me.xmrvizzy.skyblocker.config.richPresence richPresence = new richPresence();
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.TransitiveObject
     public GeneralConfig.General general = new GeneralConfig.General();
@@ -32,10 +33,6 @@ public class SkyblockerConfig implements ConfigData {
     @ConfigEntry.Category("messages")
     @ConfigEntry.Gui.TransitiveObject
     public MessagesConfig.Messages messages = new MessagesConfig.Messages();
-
-    @ConfigEntry.Category("richPresence")
-    @ConfigEntry.Gui.TransitiveObject
-    public RichPresenceConfig.RichPresence richPresence = new RichPresenceConfig.RichPresence();
 
     public enum NameSorting {
     	DEFAULT,

@@ -14,7 +14,7 @@ public class LocationsConfig {
 
         @ConfigEntry.Category("dwarvenmines")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.DwarvenMines dwarvenMines = new SkyblockerConfig.DwarvenMines();
+        public DwarvenMinesConfig.DwarvenMines dwarvenMines = new DwarvenMinesConfig.DwarvenMines();
 
         @ConfigEntry.Category("rift")
         @ConfigEntry.Gui.CollapsibleObject()

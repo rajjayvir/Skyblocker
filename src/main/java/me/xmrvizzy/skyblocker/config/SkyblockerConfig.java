@@ -44,24 +44,6 @@ public class SkyblockerConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public RichPresence richPresence = new RichPresence();
 
-    public static class QuickNavItem {
-        public QuickNavItem(Boolean render, ItemData itemData, String uiTitle, String clickEvent) {
-            this.render = render;
-            this.item = itemData;
-            this.clickEvent = clickEvent;
-            this.uiTitle = uiTitle;
-        }
-
-        public Boolean render;
-
-        @ConfigEntry.Category("item")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public ItemData item;
-
-        public String uiTitle;
-        public String clickEvent;
-    }
-
     public static class ItemData {
         public ItemData(String itemName, int count, String nbt) {
             this.itemName = itemName;

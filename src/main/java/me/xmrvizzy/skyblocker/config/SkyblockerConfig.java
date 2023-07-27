@@ -51,14 +51,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class Bars {
-        public boolean enableBars = true;
-
-        @ConfigEntry.Category("barpositions")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public BarPositions barpositions = new BarPositions();
-    }
-
     public static class BarPositions {
         @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
         public BarPosition healthBarPosition = BarPosition.LAYER1;
@@ -104,15 +96,6 @@ public class SkyblockerConfig implements ConfigData {
 
     public static class FairySouls {
         public boolean enableFairySoulsHelper = false;
-    }
-
-    public static class Shortcuts {
-        @ConfigEntry.Gui.Tooltip()
-        public boolean enableShortcuts = true;
-        @ConfigEntry.Gui.Tooltip()
-        public boolean enableCommandShortcuts = true;
-        @ConfigEntry.Gui.Tooltip()
-        public boolean enableCommandArgShortcuts = true;
     }
 
     public static class Hitbox {

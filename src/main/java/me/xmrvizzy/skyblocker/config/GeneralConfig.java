@@ -20,7 +20,7 @@ public class GeneralConfig {
 
         @ConfigEntry.Category("bars")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.Bars bars = new SkyblockerConfig.Bars();
+        public BarsConfig.Bars bars = new BarsConfig.Bars();
 
         @ConfigEntry.Category("experiments")
         @ConfigEntry.Gui.CollapsibleObject()
@@ -36,7 +36,7 @@ public class GeneralConfig {
 
         @ConfigEntry.Category("shortcuts")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.Shortcuts shortcuts = new SkyblockerConfig.Shortcuts();
+        public BarsConfig.Shortcuts shortcuts = new BarsConfig.Shortcuts();
 
         @ConfigEntry.Category("itemList")
         @ConfigEntry.Gui.CollapsibleObject()

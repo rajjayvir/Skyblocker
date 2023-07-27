@@ -36,7 +36,7 @@ public class SkyblockerConfig implements ConfigData {
 
     @ConfigEntry.Category("richPresence")
     @ConfigEntry.Gui.TransitiveObject
-    public RichPresence richPresence = new RichPresence();
+    public RichPresenceConfig.RichPresence richPresence = new RichPresenceConfig.RichPresence();
 
     public enum NameSorting {
     	DEFAULT,
@@ -157,15 +157,6 @@ public class SkyblockerConfig implements ConfigData {
                 case MIDDLE -> "Middle";
             };
         }
-    }
-
-    public static class RichPresence {
-        public boolean enableRichPresence = false;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        @ConfigEntry.Gui.Tooltip()
-        public Info info = Info.LOCATION;
-        public boolean cycleMode = false;
-        public String customMessage = "Playing Skyblock";
     }
 
     public static class ItemList {

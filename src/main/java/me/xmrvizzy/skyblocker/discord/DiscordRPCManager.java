@@ -2,6 +2,7 @@ package me.xmrvizzy.skyblocker.discord;
 
 
 import me.shedaniel.autoconfig.AutoConfig;
+import me.xmrvizzy.skyblocker.config.RichPresenceConfig;
 import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
 import me.xmrvizzy.skyblocker.utils.SkyblockEvents;
 import me.xmrvizzy.skyblocker.utils.Utils;
@@ -35,7 +36,7 @@ public class DiscordRPCManager {
     }
 
     /**
-     * Checks the {@link SkyblockerConfig.RichPresence#customMessage custom message}, updates {@link #cycleCount} if enabled, and updates rich presence.
+     * Checks the {@link RichPresenceConfig.RichPresence#customMessage custom message}, updates {@link #cycleCount} if enabled, and updates rich presence.
      */
     public static void updateDataAndPresence() {
         // If the custom message is empty, discord will keep the last message, this is can serve as a default if the user doesn't want a custom message
@@ -59,16 +60,16 @@ public class DiscordRPCManager {
      * <p>
      * When the {@link #updateTask previous update} does not exist or {@link CompletableFuture#isDone() has completed}:
      * <p>
-     * Connects to discord if {@link SkyblockerConfig.RichPresence#enableRichPresence rich presence is enabled},
+     * Connects to discord if {@link RichPresenceConfig.RichPresence#enableRichPresence rich presence is enabled},
      * the player {@link Utils#isOnSkyblock() is on Skyblock}, and {@link DiscordIPC#isConnected() discord is not already connected}.
-     * Updates the presence if {@link SkyblockerConfig.RichPresence#enableRichPresence rich presence is enabled}
+     * Updates the presence if {@link RichPresenceConfig.RichPresence#enableRichPresence rich presence is enabled}
      * and the player {@link Utils#isOnSkyblock() is on Skyblock}.
-     * Stops the connection if {@link SkyblockerConfig.RichPresence#enableRichPresence rich presence is disabled}
+     * Stops the connection if {@link RichPresenceConfig.RichPresence#enableRichPresence rich presence is disabled}
      * or the player {@link Utils#isOnSkyblock() is not on Skyblock} and {@link DiscordIPC#isConnected() discord is connected}.
      * Saves the update task in {@link #updateTask}
      *
      * @param initialization whether this is the first time the presence is being updates. If {@code true}, a message will be logged
-     *                       if {@link SkyblockerConfig.RichPresence#enableRichPresence rich presence is disabled}.
+     *                       if {@link RichPresenceConfig.RichPresence#enableRichPresence rich presence is disabled}.
      */
     private static void initAndUpdatePresence(boolean initialization) {
         if (updateTask == null || updateTask.isDone()) {

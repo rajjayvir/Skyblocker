@@ -14,7 +14,7 @@ public class DungeousConfig {
         public boolean blazesolver = true;
         public boolean solveTrivia = true;
         @ConfigEntry.Gui.CollapsibleObject
-        public SkyblockerConfig.LividColor lividColor = new SkyblockerConfig.LividColor();
+        public LividColorConfig.LividColor lividColor = new LividColorConfig.LividColor();
         @ConfigEntry.Gui.CollapsibleObject()
         public SkyblockerConfig.Terminals terminals = new SkyblockerConfig.Terminals();
     }

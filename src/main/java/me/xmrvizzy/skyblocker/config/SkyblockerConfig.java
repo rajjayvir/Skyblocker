@@ -111,13 +111,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class LividColor {
-        @ConfigEntry.Gui.Tooltip()
-        public boolean enableLividColor = true;
-        @ConfigEntry.Gui.Tooltip()
-        public String lividColorText = "The livid color is [color]";
-    }
-
     public static class Terminals {
         public boolean solveColor = true;
         public boolean solveOrder = true;

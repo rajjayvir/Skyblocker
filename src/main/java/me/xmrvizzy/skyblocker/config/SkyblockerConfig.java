@@ -72,10 +72,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class Fishing {
-        public boolean enableFishingHelper = true;
-    }
-
     public static class FairySouls {
         public boolean enableFairySoulsHelper = false;
     }

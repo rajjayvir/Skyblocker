@@ -28,7 +28,7 @@ public class GeneralConfig {
 
         @ConfigEntry.Category("fishing")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.Fishing fishing = new SkyblockerConfig.Fishing();
+        public FishingConfig.Fishing fishing = new FishingConfig.Fishing();
 
         @ConfigEntry.Category("fairySouls")
         @ConfigEntry.Gui.CollapsibleObject()

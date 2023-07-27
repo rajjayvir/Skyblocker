@@ -89,5 +89,20 @@ public class StatusBarTracker {
         return res.isEmpty() ? null : res;
     }
 
+    void assertStats(int hp, int maxHp, int def, int mana, int maxMana, int overflowMana) {
+        int absorption = 0;
+        if (hp > maxHp) {
+            absorption = hp - maxHp;
+            hp -= absorption;
+            if (absorption > maxHp)
+                absorption = maxHp;
+        }
+        assert new Resource(hp, maxHp, absorption).equals(getHealth());
+        assert new Resource(mana, maxMana, overflowMana).equals(getMana());
+        assert def == getDefense();
+    }
+
+
+
     public record Resource(int value, int max, int overflow) {}
 }

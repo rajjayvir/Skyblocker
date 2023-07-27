@@ -13,30 +13,24 @@ class StatusBarTrackerTest {
         tracker = new StatusBarTracker();
     }
 
-    void assertStats(int hp, int maxHp, int def, int mana, int maxMana, int overflowMana) {
-        int absorption = 0;
-        if(hp > maxHp) {
-            absorption = hp - maxHp;
-            hp -= absorption;
-            if(absorption > maxHp)
-                absorption = maxHp;
-        }
-        assertEquals(new StatusBarTracker.Resource(hp, maxHp, absorption), tracker.getHealth());
-        assertEquals(new StatusBarTracker.Resource(mana, maxMana, overflowMana), tracker.getMana());
-    }
-
     @Test
     void normalStatusBar() {
-        String res = tracker.update("§c934/1086❤     §a159§a❈ Defense     §b562/516✎ Mana", false);
-        assertNull(res);
-        assertStats(934, 1086, 159, 562, 516, 0);
+        String actionBar = "§c934/1086❤     §a159§a❈ Defense     §b562/516✎ Mana";
+        tracker.update(actionBar, false);
+
+        assertEquals(934, tracker.getHealth().value());
+        assertEquals(1086, tracker.getHealth().max());
+        assertEquals(159, tracker.getDefense());
+        assertEquals(562, tracker.getMana().value());
+        assertEquals(516, tracker.getMana().max());
+        assertEquals(0, tracker.getMana().overflow());
     }
 
     @Test
     void overflowMana() {
         String res = tracker.update("§61605/1305❤     §a270§a❈ Defense     §b548/548✎ §3200ʬ", false);
         assertNull(res);
-        assertStats(1605, 1305, 270, 548, 548, 200);
+        tracker.assertStats(1605, 1305, 270, 548, 548, 200);
     }
 
     @Test

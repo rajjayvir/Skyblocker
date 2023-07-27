@@ -16,6 +16,6 @@ public class DungeousConfig {
         @ConfigEntry.Gui.CollapsibleObject
         public LividColorConfig.LividColor lividColor = new LividColorConfig.LividColor();
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.Terminals terminals = new SkyblockerConfig.Terminals();
+        public TerminalsConfig.Terminals terminals = new TerminalsConfig.Terminals();
     }
 }

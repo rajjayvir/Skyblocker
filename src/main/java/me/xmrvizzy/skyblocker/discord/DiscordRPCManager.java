@@ -4,6 +4,7 @@ package me.xmrvizzy.skyblocker.discord;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.xmrvizzy.skyblocker.config.RichPresenceConfig;
 import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import me.xmrvizzy.skyblocker.utils.SkyblockEvents;
 import me.xmrvizzy.skyblocker.utils.Utils;
 import meteordevelopment.discordipc.DiscordIPC;
@@ -40,11 +41,11 @@ public class DiscordRPCManager {
      */
     public static void updateDataAndPresence() {
         // If the custom message is empty, discord will keep the last message, this is can serve as a default if the user doesn't want a custom message
-        if (SkyblockerConfig.get().richPresence.richPresence.customMessage.isEmpty()) {
-            SkyblockerConfig.get().richPresence.richPresence.customMessage = "Playing Skyblock";
+        if (getConfig.get().richPresence.richPresence.customMessage.isEmpty()) {
+            getConfig.get().richPresence.richPresence.customMessage = "Playing Skyblock";
             AutoConfig.getConfigHolder(SkyblockerConfig.class).save();
         }
-        if (SkyblockerConfig.get().richPresence.richPresence.cycleMode) cycleCount = (cycleCount + 1) % 3;
+        if (getConfig.get().richPresence.richPresence.cycleMode) cycleCount = (cycleCount + 1) % 3;
         initAndUpdatePresence();
     }
 
@@ -74,7 +75,7 @@ public class DiscordRPCManager {
     private static void initAndUpdatePresence(boolean initialization) {
         if (updateTask == null || updateTask.isDone()) {
             updateTask = CompletableFuture.runAsync(() -> {
-                if (SkyblockerConfig.get().richPresence.richPresence.enableRichPresence && Utils.isOnSkyblock()) {
+                if (getConfig.get().richPresence.richPresence.enableRichPresence && Utils.isOnSkyblock()) {
                     if (!DiscordIPC.isConnected()) {
                         if (DiscordIPC.start(934607927837356052L, null)) {
                             LOGGER.info("Discord RPC started successfully");
@@ -98,20 +99,20 @@ public class DiscordRPCManager {
         RichPresence presence = new RichPresence();
         presence.setLargeImage("skyblocker-default", null);
         presence.setStart(startTimeStamp);
-        presence.setDetails( SkyblockerConfig.get().richPresence.richPresence.customMessage);
+        presence.setDetails( getConfig.get().richPresence.richPresence.customMessage);
         presence.setState(getInfo());
         return presence;
     }
 
     public static String getInfo() {
         String info = null;
-        if (!SkyblockerConfig.get().richPresence.richPresence.cycleMode) {
-            switch (SkyblockerConfig.get().richPresence.richPresence.info) {
+        if (!getConfig.get().richPresence.richPresence.cycleMode) {
+            switch (getConfig.get().richPresence.richPresence.info) {
                 case BITS -> info = "Bits: " + DECIMAL_FORMAT.format(Utils.getBits());
                 case PURSE -> info = "Purse: " + DECIMAL_FORMAT.format(Utils.getPurse());
                 case LOCATION -> info = Utils.getLocation();
             }
-        } else if (SkyblockerConfig.get().richPresence.richPresence.cycleMode) {
+        } else if (getConfig.get().richPresence.richPresence.cycleMode) {
             switch (cycleCount) {
                 case 0 -> info = "Bits: " + DECIMAL_FORMAT.format(Utils.getBits());
                 case 1 -> info = "Purse: " + DECIMAL_FORMAT.format(Utils.getPurse());

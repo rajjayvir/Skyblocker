@@ -1,7 +1,7 @@
 package me.xmrvizzy.skyblocker.chat.filters;
 
 import me.xmrvizzy.skyblocker.chat.ChatFilterResult;
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 
 public class AbilityFilter extends SimpleChatFilter {
     public AbilityFilter() {
@@ -10,6 +10,6 @@ public class AbilityFilter extends SimpleChatFilter {
 
     @Override
     protected ChatFilterResult state() {
-        return SkyblockerConfig.get().messages.hideAbility;
+        return getConfig.get().messages.hideAbility;
     }
 }

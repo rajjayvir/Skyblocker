@@ -2,6 +2,7 @@ package me.xmrvizzy.skyblocker.utils.title;
 
 import me.xmrvizzy.skyblocker.SkyblockerMod;
 import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -81,7 +82,7 @@ public class TitleContainer {
     }
 
     private static void render(DrawContext context, float tickDelta) {
-        render(context, titles, SkyblockerConfig.get().general.titleContainer.x, SkyblockerConfig.get().general.titleContainer.y, tickDelta);
+        render(context, titles, getConfig.get().general.titleContainer.x, getConfig.get().general.titleContainer.y, tickDelta);
     }
 
     protected static void render(DrawContext context, Set<Title> titles, int xPos, int yPos, float tickDelta) {
@@ -89,11 +90,11 @@ public class TitleContainer {
         TextRenderer textRenderer = client.textRenderer;
 
         // Calculate Scale to use
-        float scale = 3F * (SkyblockerConfig.get().general.titleContainer.titleContainerScale / 100F);
+        float scale = 3F * (getConfig.get().general.titleContainer.titleContainerScale / 100F);
 
         // Grab direction and alignment values
-        SkyblockerConfig.Direction direction = SkyblockerConfig.get().general.titleContainer.direction;
-        SkyblockerConfig.Alignment alignment = SkyblockerConfig.get().general.titleContainer.alignment;
+        SkyblockerConfig.Direction direction = getConfig.get().general.titleContainer.direction;
+        SkyblockerConfig.Alignment alignment = getConfig.get().general.titleContainer.alignment;
         // x/y refer to the starting position for the text
         // y always starts at yPos
         float x = 0;

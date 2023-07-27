@@ -1,6 +1,5 @@
 package me.xmrvizzy.skyblocker.config;
 
-import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
@@ -9,8 +8,8 @@ import net.minecraft.client.resource.language.I18n;
 @Config(name = "skyblocker")
 public class SkyblockerConfig implements ConfigData {
 
-    public final TabHudConfConfigc tabHudConfConfigc = new TabHudConfConfigc();
     public final me.xmrvizzy.skyblocker.config.richPresence richPresence = new richPresence();
+    public final me.xmrvizzy.skyblocker.config.tabHudConfConfigCon tabHudConfConfigCon = new tabHudConfConfigCon();
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.TransitiveObject
     public GeneralConfig.General general = new GeneralConfig.General();
@@ -132,7 +131,4 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static SkyblockerConfig get() {
-        return AutoConfig.getConfigHolder(SkyblockerConfig.class).getConfig();
-    }
 }

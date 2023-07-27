@@ -1,7 +1,7 @@
 package me.xmrvizzy.skyblocker.mixin;
 
 import me.xmrvizzy.skyblocker.SkyblockerMod;
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import me.xmrvizzy.skyblocker.skyblock.FancyStatusBars;
 import me.xmrvizzy.skyblocker.skyblock.HotbarSlotLock;
 import me.xmrvizzy.skyblocker.skyblock.StatusBarTracker;
@@ -52,10 +52,10 @@ public abstract class InGameHudMixin {
 
     @Inject(method = "setOverlayMessage(Lnet/minecraft/text/Text;Z)V", at = @At("HEAD"), cancellable = true)
     private void skyblocker$onSetOverlayMessage(Text message, boolean tinted, CallbackInfo ci) {
-        if (!Utils.isOnSkyblock() || !SkyblockerConfig.get().general.bars.enableBars || Utils.isInTheRift())
+        if (!Utils.isOnSkyblock() || !getConfig.get().general.bars.enableBars || Utils.isInTheRift())
             return;
         String msg = message.getString();
-        String res = statusBarTracker.update(msg, SkyblockerConfig.get().messages.hideMana);
+        String res = statusBarTracker.update(msg, getConfig.get().messages.hideMana);
         if (!msg.equals(res)) {
             if (res != null)
                 setOverlayMessage(Text.of(res), tinted);
@@ -83,7 +83,7 @@ public abstract class InGameHudMixin {
 
     @Inject(method = "renderExperienceBar", at = @At("HEAD"), cancellable = true)
     private void skyblocker$renderExperienceBar(DrawContext context, int x, CallbackInfo ci) {
-        if (Utils.isOnSkyblock() && SkyblockerConfig.get().general.bars.enableBars && !Utils.isInTheRift())
+        if (Utils.isOnSkyblock() && getConfig.get().general.bars.enableBars && !Utils.isInTheRift())
             ci.cancel();
     }
 
@@ -94,7 +94,7 @@ public abstract class InGameHudMixin {
         if (statusBars.render(context, scaledWidth, scaledHeight))
             ci.cancel();
 
-        if (Utils.isInDungeons() && SkyblockerConfig.get().locations.dungeons.enableMap)
+        if (Utils.isInDungeons() && getConfig.get().locations.dungeons.enableMap)
             DungeonMap.render(context.getMatrices());
 
         //RenderSystem.setShaderTexture(0, ICONS);
@@ -102,7 +102,7 @@ public abstract class InGameHudMixin {
 
     @Inject(method = "renderMountHealth", at = @At("HEAD"), cancellable = true)
     private void skyblocker$renderMountHealth(DrawContext context, CallbackInfo ci) {
-        if (Utils.isOnSkyblock() && SkyblockerConfig.get().general.bars.enableBars && !Utils.isInTheRift())
+        if (Utils.isOnSkyblock() && getConfig.get().general.bars.enableBars && !Utils.isInTheRift())
             ci.cancel();
     }
 }

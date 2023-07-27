@@ -1,7 +1,7 @@
 package me.xmrvizzy.skyblocker.skyblock.rift;
 
 import me.xmrvizzy.skyblocker.SkyblockerMod;
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 
 public class TheRift {
@@ -13,9 +13,9 @@ public class TheRift {
     public static void init() {
         WorldRenderEvents.AFTER_TRANSLUCENT.register(MirrorverseWaypoints::render);
         WorldRenderEvents.AFTER_TRANSLUCENT.register(EffigyWaypoints::render);
-        SkyblockerMod.getInstance().scheduler.scheduleCyclic(EffigyWaypoints::updateEffigies, SkyblockerConfig.get().slayer.vampireSlayer.effigyUpdateFrequency);
-        SkyblockerMod.getInstance().scheduler.scheduleCyclic(TwinClawsIndicator::updateIce, SkyblockerConfig.get().slayer.vampireSlayer.holyIceUpdateFrequency);
-        SkyblockerMod.getInstance().scheduler.scheduleCyclic(ManiaIndicator::updateMania, SkyblockerConfig.get().slayer.vampireSlayer.maniaUpdateFrequency);
-        SkyblockerMod.getInstance().scheduler.scheduleCyclic(StakeIndicator::updateStake, SkyblockerConfig.get().slayer.vampireSlayer.steakStakeUpdateFrequency);
+        SkyblockerMod.getInstance().scheduler.scheduleCyclic(EffigyWaypoints::updateEffigies, getConfig.get().slayer.vampireSlayer.effigyUpdateFrequency);
+        SkyblockerMod.getInstance().scheduler.scheduleCyclic(TwinClawsIndicator::updateIce, getConfig.get().slayer.vampireSlayer.holyIceUpdateFrequency);
+        SkyblockerMod.getInstance().scheduler.scheduleCyclic(ManiaIndicator::updateMania, getConfig.get().slayer.vampireSlayer.maniaUpdateFrequency);
+        SkyblockerMod.getInstance().scheduler.scheduleCyclic(StakeIndicator::updateStake, getConfig.get().slayer.vampireSlayer.steakStakeUpdateFrequency);
     }
 }

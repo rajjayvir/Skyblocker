@@ -1,7 +1,7 @@
 package me.xmrvizzy.skyblocker.chat.filters;
 
 import me.xmrvizzy.skyblocker.chat.ChatFilterResult;
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 
 public class AoteFilter extends SimpleChatFilter {
     public AoteFilter() {
@@ -10,6 +10,6 @@ public class AoteFilter extends SimpleChatFilter {
 
     @Override
     public ChatFilterResult state() {
-        return SkyblockerConfig.get().messages.hideAOTE;
+        return getConfig.get().messages.hideAOTE;
     }
 }

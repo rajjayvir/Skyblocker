@@ -1,6 +1,7 @@
 package me.xmrvizzy.skyblocker.skyblock.tabhud.widget;
 
 import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import me.xmrvizzy.skyblocker.skyblock.tabhud.util.PlayerListMgr;
 import me.xmrvizzy.skyblocker.skyblock.tabhud.widget.component.PlainTextComponent;
 import me.xmrvizzy.skyblocker.skyblock.tabhud.widget.component.PlayerComponent;
@@ -47,7 +48,7 @@ public class PlayerListWidget extends Widget {
             list.add(PlayerListMgr.getRaw(i));
         }
 
-        if (SkyblockerConfig.get().general.tabHud.nameSorting == SkyblockerConfig.NameSorting.ALPHABETICAL) {
+        if (getConfig.get().general.tabHud.nameSorting == SkyblockerConfig.NameSorting.ALPHABETICAL) {
             list.sort(Comparator.comparing(o -> o.getProfile().getName().toLowerCase()));
         }
 

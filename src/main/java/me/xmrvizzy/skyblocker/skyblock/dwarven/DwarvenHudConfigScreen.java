@@ -2,6 +2,7 @@ package me.xmrvizzy.skyblocker.skyblock.dwarven;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import me.xmrvizzy.skyblocker.utils.RenderUtils;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -12,8 +13,8 @@ import java.util.List;
 
 public class DwarvenHudConfigScreen extends Screen {
 
-    private int hudX = SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.x;
-    private int hudY = SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.y;
+    private int hudX = getConfig.get().locations.dwarvenMines.dwarvenHud.x;
+    private int hudY = getConfig.get().locations.dwarvenMines.dwarvenHud.y;
 
     protected DwarvenHudConfigScreen() {
         super(Text.of("Dwarven HUD Config"));
@@ -47,8 +48,8 @@ public class DwarvenHudConfigScreen extends Screen {
 
     @Override
     public void close() {
-        SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.x = hudX;
-        SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.y = hudY;
+        getConfig.get().locations.dwarvenMines.dwarvenHud.x = hudX;
+        getConfig.get().locations.dwarvenMines.dwarvenHud.y = hudY;
         AutoConfig.getConfigHolder(SkyblockerConfig.class).save();
         super.close();
     }

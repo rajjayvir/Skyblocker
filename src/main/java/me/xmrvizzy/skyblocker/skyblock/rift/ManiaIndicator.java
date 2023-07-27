@@ -1,6 +1,6 @@
 package me.xmrvizzy.skyblocker.skyblock.rift;
 
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import me.xmrvizzy.skyblocker.utils.RenderHelper;
 import me.xmrvizzy.skyblocker.utils.SlayerUtils;
 import me.xmrvizzy.skyblocker.utils.Utils;
@@ -17,7 +17,7 @@ public class ManiaIndicator {
     private static final Title title = new Title("skyblocker.rift.mania", Formatting.RED);
 
     protected static void updateMania() {
-        if (!SkyblockerConfig.get().slayer.vampireSlayer.enableManiaIndicator || !Utils.isOnSkyblock() || !Utils.isInTheRift() || !(Utils.getLocation().contains("Stillgore Château")) || !SlayerUtils.isInSlayer()) {
+        if (!getConfig.get().slayer.vampireSlayer.enableManiaIndicator || !Utils.isOnSkyblock() || !Utils.isInTheRift() || !(Utils.getLocation().contains("Stillgore Château")) || !SlayerUtils.isInSlayer()) {
             TitleContainer.removeTitle(title);
             return;
         }

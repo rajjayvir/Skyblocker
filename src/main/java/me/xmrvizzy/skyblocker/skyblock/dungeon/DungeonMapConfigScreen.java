@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import me.xmrvizzy.skyblocker.utils.RenderUtils;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -11,8 +12,8 @@ import net.minecraft.text.Text;
 
 public class DungeonMapConfigScreen extends Screen {
 
-	private int hudX = SkyblockerConfig.get().locations.dungeons.mapX;
-	private int hudY = SkyblockerConfig.get().locations.dungeons.mapY;
+	private int hudX = getConfig.get().locations.dungeons.mapX;
+	private int hudY = getConfig.get().locations.dungeons.mapY;
 
 	protected DungeonMapConfigScreen() {
 		super(Text.literal("Dungeon Map Config"));
@@ -28,7 +29,7 @@ public class DungeonMapConfigScreen extends Screen {
 
 
 	public boolean mouseDragged(MouseEvent event) {
-		float scaling = SkyblockerConfig.get().locations.dungeons.mapScaling;
+		float scaling = getConfig.get().locations.dungeons.mapScaling;
 		int size = (int) (128 * scaling);
 
 		if (RenderUtils.pointExistsInArea((int) event.getMouseX(), (int) event.getMouseY(), hudX, hudY, hudX + size, hudY + size)
@@ -53,8 +54,8 @@ public class DungeonMapConfigScreen extends Screen {
 
 	@Override
 	public void close() {
-		SkyblockerConfig.get().locations.dungeons.mapX = hudX;
-		SkyblockerConfig.get().locations.dungeons.mapY = hudY;
+		getConfig.get().locations.dungeons.mapX = hudX;
+		getConfig.get().locations.dungeons.mapY = hudY;
 		AutoConfig.getConfigHolder(SkyblockerConfig.class).save();
 		super.close();
 	}

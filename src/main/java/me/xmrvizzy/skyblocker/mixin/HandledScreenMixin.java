@@ -1,7 +1,7 @@
 package me.xmrvizzy.skyblocker.mixin;
 
 import me.xmrvizzy.skyblocker.SkyblockerMod;
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import me.xmrvizzy.skyblocker.gui.ContainerSolver;
 import me.xmrvizzy.skyblocker.skyblock.BackpackPreview;
 import me.xmrvizzy.skyblocker.skyblock.experiment.ChronomatronSolver;
@@ -52,12 +52,12 @@ public abstract class HandledScreenMixin extends Screen {
     @Inject(at = @At("HEAD"), method = "drawMouseoverTooltip", cancellable = true)
     public void skyblocker$drawMouseOverTooltip(DrawContext context, int x, int y, CallbackInfo ci) {
         // Hide Empty Tooltips
-        if (Utils.isOnSkyblock() && SkyblockerConfig.get().general.hideEmptyTooltips && this.focusedSlot != null && focusedSlot.getStack().getName().getString().equals(" ")) {
+        if (Utils.isOnSkyblock() && getConfig.get().general.hideEmptyTooltips && this.focusedSlot != null && focusedSlot.getStack().getName().getString().equals(" ")) {
             ci.cancel();
         }
 
         // Backpack Preview
-        boolean shiftDown = SkyblockerConfig.get().general.backpackPreviewWithoutShift ^ Screen.hasShiftDown();
+        boolean shiftDown = getConfig.get().general.backpackPreviewWithoutShift ^ Screen.hasShiftDown();
         if (this.client != null && this.client.player != null && this.focusedSlot != null && shiftDown && this.getTitle().getString().equals("Storage") && this.focusedSlot.inventory != this.client.player.getInventory() && BackpackPreview.renderPreview(context, this.focusedSlot.getIndex(), x, y)) {
             ci.cancel();
         }

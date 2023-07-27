@@ -1,7 +1,7 @@
 package me.xmrvizzy.skyblocker.skyblock.dwarven;
 
 import me.xmrvizzy.skyblocker.SkyblockerMod;
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import me.xmrvizzy.skyblocker.skyblock.tabhud.widget.CommsWidget;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
@@ -48,19 +48,19 @@ public class DwarvenHud {
                                 .executes(context -> SkyblockerMod.getInstance().scheduler.queueOpenScreen(DwarvenHudConfigScreen::new))))));
 
         HudRenderCallback.EVENT.register((context, tickDelta) -> {
-            if (!SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.enabled
+            if (!getConfig.get().locations.dwarvenMines.dwarvenHud.enabled
                     || client.options.playerListKey.isPressed()
                     || client.player == null
                     || commissionList.isEmpty()) {
                 return;
             }
-            render(context, SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.x, SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.y, commissionList);
+            render(context, getConfig.get().locations.dwarvenMines.dwarvenHud.x, getConfig.get().locations.dwarvenMines.dwarvenHud.y, commissionList);
         });
     }
 
     public static void render(DrawContext context, int hudX, int hudY, List<Commission> commissions) {
 
-        switch (SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.style) {
+        switch (getConfig.get().locations.dwarvenMines.dwarvenHud.style) {
             case SIMPLE -> renderSimple(context, hudX, hudY, commissions);
             case FANCY -> renderFancy(context, hudX, hudY, commissions);
             case CLASSIC -> renderClassic(context, hudX, hudY, commissions);
@@ -68,7 +68,7 @@ public class DwarvenHud {
     }
 
     public static void renderClassic(DrawContext context, int hudX, int hudY, List<Commission> commissions) {
-        if (SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.enableBackground) {
+        if (getConfig.get().locations.dwarvenMines.dwarvenHud.enableBackground) {
             context.fill(hudX, hudY, hudX + 200, hudY + (20 * commissions.size()), 0x64000000);
         }
 
@@ -89,19 +89,19 @@ public class DwarvenHud {
         CommsWidget cw = new CommsWidget(commissions, false);
         cw.setX(hudX);
         cw.setY(hudY);
-        cw.render(context, SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.enableBackground);
+        cw.render(context, getConfig.get().locations.dwarvenMines.dwarvenHud.enableBackground);
     }
 
     public static void renderFancy(DrawContext context, int hudX, int hudY, List<Commission> commissions) {
         CommsWidget cw = new CommsWidget(commissions, true);
         cw.setX(hudX);
         cw.setY(hudY);
-        cw.render(context, SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.enableBackground);
+        cw.render(context, getConfig.get().locations.dwarvenMines.dwarvenHud.enableBackground);
     }
 
     public static void update() {
         commissionList = new ArrayList<>();
-        if (client.player == null || !SkyblockerConfig.get().locations.dwarvenMines.dwarvenHud.enabled) return;
+        if (client.player == null || !getConfig.get().locations.dwarvenMines.dwarvenHud.enabled) return;
 
         client.getNetworkHandler().getPlayerList().forEach(playerListEntry -> {
             if (playerListEntry.getDisplayName() != null) {

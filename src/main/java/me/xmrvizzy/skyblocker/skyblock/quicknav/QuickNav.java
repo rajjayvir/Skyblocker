@@ -1,10 +1,7 @@
 package me.xmrvizzy.skyblocker.skyblock.quicknav;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import me.xmrvizzy.skyblocker.config.IntemDataConfig;
-import me.xmrvizzy.skyblocker.config.QuickNavConfig;
-import me.xmrvizzy.skyblocker.config.QuickNavItemConfig;
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.*;
 import me.xmrvizzy.skyblocker.utils.Utils;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
@@ -22,7 +19,7 @@ public class QuickNav {
 
     public static void init() {
         ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
-            if (Utils.isOnSkyblock() && SkyblockerConfig.get().tabHudConfConfigc.tabHudConfConfig.quickNav.enableQuickNav && screen instanceof HandledScreen<?>) {
+            if (Utils.isOnSkyblock() && getConfig.get().tabHudConfConfigCon.tabHudConfConfigc.tabHudConfConfig.quickNav.enableQuickNav && screen instanceof HandledScreen<?>) {
                 String screenTitle = screen.getTitle().getString().trim();
                 List<QuickNavButton> buttons = QuickNav.init(screenTitle);
                 for (QuickNavButton button : buttons) Screens.getButtons(screen).add(button);
@@ -32,7 +29,7 @@ public class QuickNav {
 
     public static List<QuickNavButton> init(String screenTitle) {
         List<QuickNavButton> buttons = new ArrayList<>();
-        QuickNavConfig.QuickNav data = SkyblockerConfig.get().tabHudConfConfigc.tabHudConfConfig.quickNav;
+        QuickNavConfig.QuickNav data = getConfig.get().tabHudConfConfigCon.tabHudConfConfigc.tabHudConfConfig.quickNav;
         try {
             if (data.button1.render) buttons.add(parseButton(data.button1, screenTitle, 0));
             if (data.button2.render) buttons.add(parseButton(data.button2, screenTitle, 1));

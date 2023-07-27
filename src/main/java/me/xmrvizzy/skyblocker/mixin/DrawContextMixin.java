@@ -3,6 +3,7 @@ package me.xmrvizzy.skyblocker.mixin;
 import java.awt.Color;
 import java.util.regex.Pattern;
 
+import me.xmrvizzy.skyblocker.config.getConfig;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Final;
@@ -13,7 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
 import me.xmrvizzy.skyblocker.utils.ItemUtils;
 import me.xmrvizzy.skyblocker.utils.Utils;
 import net.minecraft.client.font.TextRenderer;
@@ -35,7 +35,7 @@ public abstract class DrawContextMixin {
     @Inject(method = "drawItemInSlot(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V", at = @At("HEAD"))
     public void skyblocker$renderItemBar(TextRenderer textRenderer, ItemStack stack, int x, int y, @Nullable String countOverride, CallbackInfo ci) {
 
-        if (Utils.isOnSkyblock() && SkyblockerConfig.get().locations.dwarvenMines.enableDrillFuel) {
+        if (Utils.isOnSkyblock() && getConfig.get().locations.dwarvenMines.enableDrillFuel) {
             if (!stack.isEmpty()) {
                 NbtCompound tag = stack.getNbt();
                 if (tag != null && tag.contains("ExtraAttributes")) {

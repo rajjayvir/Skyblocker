@@ -2,7 +2,7 @@ package me.xmrvizzy.skyblocker.skyblock.tabhud.screens;
 
 import java.util.ArrayList;
 
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.getConfig;
 import me.xmrvizzy.skyblocker.skyblock.tabhud.TabHud;
 import me.xmrvizzy.skyblocker.skyblock.tabhud.screens.genericInfo.GardenInfoScreen;
 import me.xmrvizzy.skyblocker.skyblock.tabhud.screens.genericInfo.GenericInfoScreen;
@@ -26,7 +26,6 @@ import me.xmrvizzy.skyblocker.skyblock.tabhud.screens.playerList.PlayerListScree
 import me.xmrvizzy.skyblocker.skyblock.tabhud.util.PlayerLocator;
 import me.xmrvizzy.skyblocker.skyblock.tabhud.widget.Widget;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 
 public class Screen {
@@ -35,7 +34,7 @@ public class Screen {
     private int w, h;
 
     public Screen(int w, int h) {
-        float scale = SkyblockerConfig.get().general.tabHud.tabHudScale / 100f;
+        float scale = getConfig.get().general.tabHud.tabHudScale / 100f;
         this.w = (int) (w / scale);
         this.h = (int) (h / scale);
     }

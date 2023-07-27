@@ -48,7 +48,7 @@ public class GeneralConfig {
 
         @ConfigEntry.Category("hitbox")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.Hitbox hitbox = new SkyblockerConfig.Hitbox();
+        public HitboxConfig.Hitbox hitbox = new HitboxConfig.Hitbox();
 
         @ConfigEntry.Gui.Tooltip()
         @ConfigEntry.Category("titleContainer")

@@ -72,11 +72,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class Hitbox {
-        public boolean oldFarmlandHitbox = true;
-        public boolean oldLeverHitbox = false;
-    }
-
     public static class TitleContainer {
         @ConfigEntry.BoundedDiscrete(min = 30, max = 140)
         public float titleContainerScale = 100;

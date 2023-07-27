@@ -72,12 +72,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class Experiments {
-        public boolean enableChronomatronSolver = true;
-        public boolean enableSuperpairsSolver = true;
-        public boolean enableUltrasequencerSolver = true;
-    }
-
     public static class Fishing {
         public boolean enableFishingHelper = true;
     }

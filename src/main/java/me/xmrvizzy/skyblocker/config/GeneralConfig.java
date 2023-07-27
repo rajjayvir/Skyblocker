@@ -24,7 +24,7 @@ public class GeneralConfig {
 
         @ConfigEntry.Category("experiments")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.Experiments experiments = new SkyblockerConfig.Experiments();
+        public ExperimentsConfig.Experiments experiments = new ExperimentsConfig.Experiments();
 
         @ConfigEntry.Category("fishing")
         @ConfigEntry.Gui.CollapsibleObject()

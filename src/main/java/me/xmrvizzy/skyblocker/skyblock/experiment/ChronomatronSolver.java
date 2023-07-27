@@ -1,7 +1,7 @@
 package me.xmrvizzy.skyblocker.skyblock.experiment;
 
 import com.google.common.collect.ImmutableMap;
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.ExperimentsConfig;
 import me.xmrvizzy.skyblocker.gui.ColorHighlight;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.GenericContainerScreen;
@@ -51,7 +51,7 @@ public class ChronomatronSolver extends ExperimentSolver {
     }
 
     @Override
-    protected boolean isEnabled(SkyblockerConfig.Experiments experimentsConfig) {
+    protected boolean isEnabled(ExperimentsConfig.Experiments experimentsConfig) {
         return experimentsConfig.enableChronomatronSolver;
     }
 

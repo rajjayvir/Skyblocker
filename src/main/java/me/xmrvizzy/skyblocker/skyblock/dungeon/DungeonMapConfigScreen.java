@@ -26,16 +26,20 @@ public class DungeonMapConfigScreen extends Screen {
 		context.drawCenteredTextWithShadow(textRenderer, "Right Click To Reset Position", width >> 1, height >> 1, Color.GRAY.getRGB());
 	}
 
-	@Override
-	public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
+
+	public boolean mouseDragged(MouseEvent event) {
 		float scaling = SkyblockerConfig.get().locations.dungeons.mapScaling;
 		int size = (int) (128 * scaling);
-		if (RenderUtils.pointExistsInArea((int) mouseX, (int) mouseY, hudX, hudY, hudX + size, hudY + size) && button == 0) {
-			hudX = (int) Math.max(Math.min(mouseX - (size >> 1), this.width - size), 0);
-			hudY = (int) Math.max(Math.min(mouseY - (size >> 1), this.height - size), 0);
+
+		if (RenderUtils.pointExistsInArea((int) event.getMouseX(), (int) event.getMouseY(), hudX, hudY, hudX + size, hudY + size)
+				&& event.getButton() == 0) {
+			hudX = (int) Math.max(Math.min(event.getMouseX() - (size >> 1), this.width - size), 0);
+			hudY = (int) Math.max(Math.min(event.getMouseY() - (size >> 1), this.height - size), 0);
 		}
-		return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
+
+		return super.mouseDragged(event.getMouseX(), event.getMouseY(), event.getButton(), event.getDeltaX(), event.getDeltaY());
 	}
+
 
 	@Override
 	public boolean mouseClicked(double mouseX, double mouseY, int button) {

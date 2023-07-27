@@ -1,0 +1,61 @@
+package me.xmrvizzy.skyblocker.config;
+
+import me.shedaniel.autoconfig.annotation.ConfigEntry;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GeneralConfig {
+    public static class General {
+        public boolean acceptReparty = true;
+        public boolean backpackPreviewWithoutShift = false;
+        public boolean hideEmptyTooltips = true;
+
+        @ConfigEntry.Category("tabHud")
+        @ConfigEntry.Gui.CollapsibleObject()
+        public SkyblockerConfig.TabHudConf tabHud = new SkyblockerConfig.TabHudConf();
+
+        @ConfigEntry.Gui.Excluded
+        public String apiKey;
+
+        @ConfigEntry.Category("bars")
+        @ConfigEntry.Gui.CollapsibleObject()
+        public SkyblockerConfig.Bars bars = new SkyblockerConfig.Bars();
+
+        @ConfigEntry.Category("experiments")
+        @ConfigEntry.Gui.CollapsibleObject()
+        public SkyblockerConfig.Experiments experiments = new SkyblockerConfig.Experiments();
+
+        @ConfigEntry.Category("fishing")
+        @ConfigEntry.Gui.CollapsibleObject()
+        public SkyblockerConfig.Fishing fishing = new SkyblockerConfig.Fishing();
+
+        @ConfigEntry.Category("fairySouls")
+        @ConfigEntry.Gui.CollapsibleObject()
+        public SkyblockerConfig.FairySouls fairySouls = new SkyblockerConfig.FairySouls();
+
+        @ConfigEntry.Category("shortcuts")
+        @ConfigEntry.Gui.CollapsibleObject()
+        public SkyblockerConfig.Shortcuts shortcuts = new SkyblockerConfig.Shortcuts();
+
+        @ConfigEntry.Category("itemList")
+        @ConfigEntry.Gui.CollapsibleObject()
+        public SkyblockerConfig.ItemList itemList = new SkyblockerConfig.ItemList();
+
+        @ConfigEntry.Category("itemTooltip")
+        @ConfigEntry.Gui.CollapsibleObject()
+        public SkyblockerConfig.ItemTooltip itemTooltip = new SkyblockerConfig.ItemTooltip();
+
+        @ConfigEntry.Category("hitbox")
+        @ConfigEntry.Gui.CollapsibleObject()
+        public SkyblockerConfig.Hitbox hitbox = new SkyblockerConfig.Hitbox();
+
+        @ConfigEntry.Gui.Tooltip()
+        @ConfigEntry.Category("titleContainer")
+        @ConfigEntry.Gui.CollapsibleObject()
+        public SkyblockerConfig.TitleContainer titleContainer = new SkyblockerConfig.TitleContainer();
+
+        @ConfigEntry.Gui.Excluded
+        public List<Integer> lockedSlots = new ArrayList<Integer>();
+    }
+}

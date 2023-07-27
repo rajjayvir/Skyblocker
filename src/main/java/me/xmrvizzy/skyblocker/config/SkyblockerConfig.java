@@ -12,9 +12,6 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallba
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.client.resource.language.I18n;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
 
 @Config(name = "skyblocker")
@@ -22,7 +19,7 @@ public class SkyblockerConfig implements ConfigData {
 
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.TransitiveObject
-    public General general = new General();
+    public GeneralConfig.General general = new GeneralConfig.General();
 
     @ConfigEntry.Category("locations")
     @ConfigEntry.Gui.TransitiveObject
@@ -43,59 +40,6 @@ public class SkyblockerConfig implements ConfigData {
     @ConfigEntry.Category("richPresence")
     @ConfigEntry.Gui.TransitiveObject
     public RichPresence richPresence = new RichPresence();
-
-    public static class General {
-        public boolean acceptReparty = true;
-        public boolean backpackPreviewWithoutShift = false;
-        public boolean hideEmptyTooltips = true;
-
-        @ConfigEntry.Category("tabHud")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public TabHudConf tabHud = new TabHudConf();
-
-        @ConfigEntry.Gui.Excluded
-        public String apiKey;
-
-        @ConfigEntry.Category("bars")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public Bars bars = new Bars();
-
-        @ConfigEntry.Category("experiments")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public Experiments experiments = new Experiments();
-
-        @ConfigEntry.Category("fishing")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public Fishing fishing = new Fishing();
-
-        @ConfigEntry.Category("fairySouls")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public FairySouls fairySouls = new FairySouls();
-
-        @ConfigEntry.Category("shortcuts")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public Shortcuts shortcuts = new Shortcuts();
-
-        @ConfigEntry.Category("itemList")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public ItemList itemList = new ItemList();
-
-        @ConfigEntry.Category("itemTooltip")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public ItemTooltip itemTooltip = new ItemTooltip();
-
-        @ConfigEntry.Category("hitbox")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public Hitbox hitbox = new Hitbox();
-
-        @ConfigEntry.Gui.Tooltip()
-        @ConfigEntry.Category("titleContainer")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public TitleContainer titleContainer = new TitleContainer();
-
-        @ConfigEntry.Gui.Excluded
-        public List<Integer> lockedSlots = new ArrayList<>();
-    }
 
     public static class TabHudConf {
         public boolean tabHudEnabled = true;

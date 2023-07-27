@@ -33,31 +33,59 @@ public class EffigyWaypoints {
     private static final List<BlockPos> unBrokenEffigies = new ArrayList<>();
 
     protected static void updateEffigies() {
-        if (!SkyblockerConfig.get().slayer.vampireSlayer.enableEffigyWaypoints || !Utils.isOnSkyblock() || !Utils.isInTheRift() || !Utils.getLocation().contains("Stillgore Château")) return;
+        if (!shouldUpdateEffigies()) return;
 
         unBrokenEffigies.clear();
         try {
             ClientPlayerEntity player = MinecraftClient.getInstance().player;
             if (player == null) return;
+
             Scoreboard scoreboard = player.getScoreboard();
-            ScoreboardObjective objective = scoreboard.getObjectiveForSlot(1);
-            for (ScoreboardPlayerScore score : scoreboard.getAllPlayerScores(objective)) {
-                Team team = scoreboard.getPlayerTeam(score.getPlayerName());
-                if (team != null) {
-                    String line = team.getPrefix().getString() + team.getSuffix().getString();
-                    if (line.contains("Effigies")) {
-                        List<Text> newList = new ArrayList<>(team.getPrefix().getSiblings());
-                        newList.addAll(team.getSuffix().getSiblings());
-                        for (int i = 1; i < newList.size(); i++) {
-                            if (newList.get(i).getStyle().getColor() == TextColor.parse("gray")) {
-                                unBrokenEffigies.add(effigies.get(i - 1));
-                            }
-                        }
-                    }
-                }
-            }
+            ScoreboardObjective objective = getScoreboardObjective(scoreboard);
+
+            if (objective == null) return;
+
+            updateUnBrokenEffigies(scoreboard, objective);
         } catch (NullPointerException e) {
             LOGGER.error("[Skyblocker] Error while updating effigies.", e);
+        }
+    }
+
+    private static boolean shouldUpdateEffigies() {
+        return SkyblockerConfig.get().slayer.vampireSlayer.enableEffigyWaypoints &&
+                Utils.isOnSkyblock() &&
+                Utils.isInTheRift() &&
+                Utils.getLocation().contains("Stillgore Château");
+    }
+
+    private static ScoreboardObjective getScoreboardObjective(Scoreboard scoreboard) {
+        return scoreboard.getObjectiveForSlot(1);
+    }
+
+    private static void updateUnBrokenEffigies(Scoreboard scoreboard, ScoreboardObjective objective) {
+        unBrokenEffigies.clear();
+        for (ScoreboardPlayerScore score : scoreboard.getAllPlayerScores(objective)) {
+            Team team = scoreboard.getPlayerTeam(score.getPlayerName());
+            if (team != null && teamContainsEffigies(team)) {
+                extractUnBrokenEffigiesFromTeam(team);
+            }
+        }
+    }
+
+    private static boolean teamContainsEffigies(Team team) {
+        String line = team.getPrefix().getString() + team.getSuffix().getString();
+        return line.contains("Effigies");
+    }
+
+    private static void extractUnBrokenEffigiesFromTeam(Team team) {
+        List<Text> prefixesAndSuffixes = new ArrayList<>(team.getPrefix().getSiblings());
+        prefixesAndSuffixes.addAll(team.getSuffix().getSiblings());
+
+        for (int i = 1; i < prefixesAndSuffixes.size(); i++) {
+            TextColor color = prefixesAndSuffixes.get(i).getStyle().getColor();
+            if (color == TextColor.parse("gray")) {
+                unBrokenEffigies.add(effigies.get(i - 1));
+            }
         }
     }
 

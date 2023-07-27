@@ -44,24 +44,6 @@ public class SkyblockerConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public RichPresence richPresence = new RichPresence();
 
-    public static class ItemData {
-        public ItemData(String itemName, int count, String nbt) {
-            this.itemName = itemName;
-            this.count = count;
-            this.nbt = nbt;
-        }
-
-        public ItemData(String itemName) {
-            this.itemName = itemName;
-            this.count = 1;
-            this.nbt = "";
-        }
-
-        public String itemName;
-        public int count;
-        public String nbt;
-    }
-
     public static class General {
         public boolean acceptReparty = true;
         public boolean backpackPreviewWithoutShift = false;

@@ -1,6 +1,7 @@
 package me.xmrvizzy.skyblocker.skyblock.quicknav;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import me.xmrvizzy.skyblocker.config.IntemDataConfig;
 import me.xmrvizzy.skyblocker.config.QuickNavConfig;
 import me.xmrvizzy.skyblocker.config.QuickNavItemConfig;
 import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
@@ -52,7 +53,7 @@ public class QuickNav {
     }
 
     private static QuickNavButton parseButton(QuickNavItemConfig.QuickNavItem buttonInfo, String screenTitle, int id) throws CommandSyntaxException {
-        SkyblockerConfig.ItemData itemData = buttonInfo.item;
+        IntemDataConfig.ItemData itemData = buttonInfo.item;
         String nbtString = "{id:\"minecraft:" + itemData.itemName.toLowerCase(Locale.ROOT) + "\",Count:1";
         if (itemData.nbt.length() > 2) nbtString += "," + itemData.nbt;
         nbtString += "}";

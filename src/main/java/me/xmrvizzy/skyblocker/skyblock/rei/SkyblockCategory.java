@@ -13,6 +13,7 @@ import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import me.xmrvizzy.skyblocker.config.IntemDataConfig;
 import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.StringNbtReader;
@@ -39,7 +40,7 @@ public class SkyblockCategory implements DisplayCategory<SkyblockCraftingDisplay
     @Override
     public Renderer getIcon() {
         // TODO separate icon from quickNav
-        SkyblockerConfig.ItemData iconItem = SkyblockerConfig.get().quickNav.button7.item;
+        IntemDataConfig.ItemData iconItem = SkyblockerConfig.get().quickNav.button7.item;
         String nbtString = "{id:\"minecraft:" + iconItem.itemName.toLowerCase(Locale.ROOT) + "\",Count:1";
         if (iconItem.nbt.length() > 2) nbtString += "," + iconItem.nbt;
         nbtString += "}";

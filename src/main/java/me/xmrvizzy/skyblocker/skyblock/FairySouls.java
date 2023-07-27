@@ -122,15 +122,15 @@ public class FairySouls {
     }
 
     private static boolean isFairySoulNotFound(BlockPos fairySoul) {
-        Map<String, Set<BlockPos>> foundFairiesForProfile = foundFairies.get(Utils.getProfile());
+        Map<String, Set<BlockPos>> foundFairiesForProfile = foundFairies.get( Utils.getProfile() );
         if (foundFairiesForProfile == null) {
             return true;
         }
-        Set<BlockPos> foundFairiesForProfileAndLocation = foundFairiesForProfile.get(Utils.getLocationRaw());
-        if (foundFairiesForProfileAndLocation == null) {
+        Set<BlockPos> fairiesByProfileAndLoc = foundFairiesForProfile.get( Utils.getLocationRaw() );
+        if (fairiesByProfileAndLoc == null) {
             return true;
         }
-        return !foundFairiesForProfileAndLocation.contains(fairySoul);
+        return !fairiesByProfileAndLoc.contains( fairySoul );
     }
 
     public static void onChatMessage(Text text, boolean overlay) {

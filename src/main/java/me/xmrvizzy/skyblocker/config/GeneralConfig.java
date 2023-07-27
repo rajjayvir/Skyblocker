@@ -32,7 +32,7 @@ public class GeneralConfig {
 
         @ConfigEntry.Category("fairySouls")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.FairySouls fairySouls = new SkyblockerConfig.FairySouls();
+        public FairySoulsConfig.FairySouls fairySouls = new FairySoulsConfig.FairySouls();
 
         @ConfigEntry.Category("shortcuts")
         @ConfigEntry.Gui.CollapsibleObject()

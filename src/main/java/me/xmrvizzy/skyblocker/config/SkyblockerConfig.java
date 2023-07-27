@@ -72,10 +72,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class FairySouls {
-        public boolean enableFairySoulsHelper = false;
-    }
-
     public static class Hitbox {
         public boolean oldFarmlandHitbox = true;
         public boolean oldLeverHitbox = false;

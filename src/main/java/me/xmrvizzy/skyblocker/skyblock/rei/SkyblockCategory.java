@@ -40,7 +40,7 @@ public class SkyblockCategory implements DisplayCategory<SkyblockCraftingDisplay
     @Override
     public Renderer getIcon() {
         // TODO separate icon from quickNav
-        IntemDataConfig.ItemData iconItem = SkyblockerConfig.get().quickNav.button7.item;
+        IntemDataConfig.ItemData iconItem = SkyblockerConfig.get().tabHudConfConfig.quickNav.button7.item;
         String nbtString = "{id:\"minecraft:" + iconItem.itemName.toLowerCase(Locale.ROOT) + "\",Count:1";
         if (iconItem.nbt.length() > 2) nbtString += "," + iconItem.nbt;
         nbtString += "}";

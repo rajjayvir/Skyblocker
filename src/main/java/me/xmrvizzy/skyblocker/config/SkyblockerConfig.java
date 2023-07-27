@@ -17,6 +17,7 @@ import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.lit
 @Config(name = "skyblocker")
 public class SkyblockerConfig implements ConfigData {
 
+    public final TabHudConfConfig tabHudConfConfig = new TabHudConfConfig();
     @ConfigEntry.Category("general")
     @ConfigEntry.Gui.TransitiveObject
     public GeneralConfig.General general = new GeneralConfig.General();
@@ -29,10 +30,6 @@ public class SkyblockerConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public Slayer slayer = new Slayer();
 
-    @ConfigEntry.Category("quickNav")
-    @ConfigEntry.Gui.TransitiveObject
-    public QuickNavConfig.QuickNav quickNav = new QuickNavConfig.QuickNav();
-
     @ConfigEntry.Category("messages")
     @ConfigEntry.Gui.TransitiveObject
     public Messages messages = new Messages();
@@ -41,20 +38,6 @@ public class SkyblockerConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public RichPresence richPresence = new RichPresence();
 
-    public static class TabHudConf {
-        public boolean tabHudEnabled = true;
-
-        @ConfigEntry.BoundedDiscrete(min = 10, max = 200)
-        @ConfigEntry.Gui.Tooltip()
-        public int tabHudScale = 100;
-        @ConfigEntry.Gui.Tooltip
-        public boolean plainPlayerNames = false;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        @ConfigEntry.Gui.Tooltip
-        public NameSorting nameSorting = NameSorting.DEFAULT;
-        
-    }
-    
     public enum NameSorting {
     	DEFAULT,
         ALPHABETICAL;

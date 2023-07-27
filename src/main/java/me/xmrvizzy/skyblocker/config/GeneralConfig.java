@@ -13,7 +13,7 @@ public class GeneralConfig {
 
         @ConfigEntry.Category("tabHud")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.TabHudConf tabHud = new SkyblockerConfig.TabHudConf();
+        public TabHudConfConfig.TabHudConf tabHud = new TabHudConfConfig.TabHudConf();
 
         @ConfigEntry.Gui.Excluded
         public String apiKey;

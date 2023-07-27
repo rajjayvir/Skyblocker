@@ -12,6 +12,6 @@ public class voidConfig {
      */
     public static void init() {
         AutoConfig.register( SkyblockerConfig.class, GsonConfigSerializer::new );
-        ClientCommandRegistrationCallback.EVENT.register( ((dispatcher, registryAccess) -> dispatcher.register( ClientCommandManager.literal( SkyblockerMod.NAMESPACE ).then( SkyblockerConfig.optionsLiteral( "config" ) ).then( SkyblockerConfig.optionsLiteral( "options" ) ) )) );
+        ClientCommandRegistrationCallback.EVENT.register( ((dispatcher, registryAccess) -> dispatcher.register( ClientCommandManager.literal( SkyblockerMod.NAMESPACE ).then( optionsLitralConfig.optionsLiteral( "config" ) ).then( optionsLitralConfig.optionsLiteral( "options" ) ) )) );
     }
 }

@@ -1,15 +1,10 @@
 package me.xmrvizzy.skyblocker.config;
 
-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import me.xmrvizzy.skyblocker.SkyblockerMod;
-import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.client.resource.language.I18n;
-
-import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
 
 @Config(name = "skyblocker")
 public class SkyblockerConfig implements ConfigData {
@@ -135,17 +130,6 @@ public class SkyblockerConfig implements ConfigData {
         public String toString() {
             return I18n.translate("text.autoconfig.skyblocker.option.richPresence.info." + name());
         }
-    }
-
-    /**
-     * Registers an options command with the given name. Used for registering both options and config as valid commands.
-     *
-     * @param name the name of the command node
-     * @return the command builder
-     */
-    static LiteralArgumentBuilder<FabricClientCommandSource> optionsLiteral(String name) {
-        // Don't immediately open the next screen as it will be closed by ChatScreen right after this command is executed
-        return literal(name).executes(context -> SkyblockerMod.getInstance().scheduler.queueOpenScreen(AutoConfig.getConfigScreen(SkyblockerConfig.class, null)));
     }
 
     public static SkyblockerConfig get() {

@@ -111,19 +111,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class ItemTooltip {
-        public boolean enableNPCPrice = true;
-        @ConfigEntry.Gui.Tooltip
-        public boolean enableMotesPrice = true;
-        public boolean enableAvgBIN = true;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        @ConfigEntry.Gui.Tooltip()
-        public Average avg = Average.THREE_DAY;
-        public boolean enableLowestBIN = true;
-        public boolean enableBazaarPrice = true;
-        public boolean enableMuseumDate = true;
-    }
-
     public static class Locations {
         @ConfigEntry.Category("barn")
         @ConfigEntry.Gui.CollapsibleObject()

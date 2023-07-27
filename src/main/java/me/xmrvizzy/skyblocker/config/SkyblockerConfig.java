@@ -111,22 +111,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class Dungeons {
-        @ConfigEntry.Gui.Tooltip()
-        public boolean croesusHelper = true;
-        public boolean enableMap = true;
-        public float mapScaling = 1f;
-        public int mapX = 2;
-        public int mapY = 2;
-        public boolean solveThreeWeirdos = true;
-        public boolean blazesolver = true;
-        public boolean solveTrivia = true;
-        @ConfigEntry.Gui.CollapsibleObject
-        public LividColor lividColor = new LividColor();
-        @ConfigEntry.Gui.CollapsibleObject()
-        public Terminals terminals = new Terminals();
-    }
-
     public static class LividColor {
         @ConfigEntry.Gui.Tooltip()
         public boolean enableLividColor = true;

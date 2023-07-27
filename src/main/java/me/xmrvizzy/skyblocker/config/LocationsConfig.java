@@ -10,7 +10,7 @@ public class LocationsConfig {
 
         @ConfigEntry.Category("dungeons")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.Dungeons dungeons = new SkyblockerConfig.Dungeons();
+        public DungeousConfig.Dungeons dungeons = new DungeousConfig.Dungeons();
 
         @ConfigEntry.Category("dwarvenmines")
         @ConfigEntry.Gui.CollapsibleObject()

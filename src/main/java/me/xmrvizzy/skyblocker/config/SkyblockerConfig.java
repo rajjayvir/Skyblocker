@@ -125,13 +125,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class Rift {
-        public boolean mirrorverseWaypoints = true;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 5)
-        @ConfigEntry.Gui.Tooltip
-        public int mcGrubberStacks = 0;
-    }
-
     public static class Slayer {
         @ConfigEntry.Category("vampire")
         @ConfigEntry.Gui.CollapsibleObject()

@@ -18,6 +18,6 @@ public class LocationsConfig {
 
         @ConfigEntry.Category("rift")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.Rift rift = new SkyblockerConfig.Rift();
+        public RiftConfig.Rift rift = new RiftConfig.Rift();
     }
 }

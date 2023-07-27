@@ -40,7 +40,7 @@ public class GeneralConfig {
 
         @ConfigEntry.Category("itemList")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.ItemList itemList = new SkyblockerConfig.ItemList();
+        public ItemListConfig.ItemList itemList = new ItemListConfig.ItemList();
 
         @ConfigEntry.Category("itemTooltip")
         @ConfigEntry.Gui.CollapsibleObject()

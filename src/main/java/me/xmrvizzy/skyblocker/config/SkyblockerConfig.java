@@ -100,10 +100,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class ItemList {
-        public boolean enableItemList = true;
-    }
-
     public enum Average {
         ONE_DAY,
         THREE_DAY,

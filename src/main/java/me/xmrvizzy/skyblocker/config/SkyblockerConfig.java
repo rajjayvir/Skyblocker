@@ -7,7 +7,6 @@ import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import me.xmrvizzy.skyblocker.SkyblockerMod;
-import me.xmrvizzy.skyblocker.chat.ChatFilterResult;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.client.resource.language.I18n;
@@ -32,7 +31,7 @@ public class SkyblockerConfig implements ConfigData {
 
     @ConfigEntry.Category("messages")
     @ConfigEntry.Gui.TransitiveObject
-    public Messages messages = new Messages();
+    public MessagesConfig.Messages messages = new MessagesConfig.Messages();
 
     @ConfigEntry.Category("richPresence")
     @ConfigEntry.Gui.TransitiveObject
@@ -160,32 +159,6 @@ public class SkyblockerConfig implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 10)
         @ConfigEntry.Gui.Tooltip()
         public int maniaUpdateFrequency = 5;
-    }
-
-    public static class Messages {
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public ChatFilterResult hideAbility = ChatFilterResult.PASS;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public ChatFilterResult hideHeal = ChatFilterResult.PASS;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public ChatFilterResult hideAOTE = ChatFilterResult.PASS;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public ChatFilterResult hideImplosion = ChatFilterResult.PASS;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public ChatFilterResult hideMoltenWave = ChatFilterResult.PASS;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public ChatFilterResult hideAds = ChatFilterResult.PASS;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public ChatFilterResult hideTeleportPad = ChatFilterResult.PASS;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public ChatFilterResult hideCombo = ChatFilterResult.PASS;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public ChatFilterResult hideAutopet = ChatFilterResult.PASS;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        @ConfigEntry.Gui.Tooltip
-        public ChatFilterResult hideShowOff = ChatFilterResult.PASS;
-        @ConfigEntry.Gui.Tooltip()
-        public boolean hideMana = false;
     }
 
     public enum Info {

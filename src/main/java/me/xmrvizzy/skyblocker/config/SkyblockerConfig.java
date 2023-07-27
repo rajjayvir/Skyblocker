@@ -24,7 +24,7 @@ public class SkyblockerConfig implements ConfigData {
 
     @ConfigEntry.Category("locations")
     @ConfigEntry.Gui.TransitiveObject
-    public Locations locations = new Locations();
+    public LocationsConfig.Locations locations = new LocationsConfig.Locations();
 
     @ConfigEntry.Category("slayer")
     @ConfigEntry.Gui.TransitiveObject
@@ -109,24 +109,6 @@ public class SkyblockerConfig implements ConfigData {
         public String toString() {
             return I18n.translate("text.autoconfig.skyblocker.option.general.itemTooltip.avg." + name());
         }
-    }
-
-    public static class Locations {
-        @ConfigEntry.Category("barn")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public Barn barn = new Barn();
-
-        @ConfigEntry.Category("dungeons")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public Dungeons dungeons = new Dungeons();
-
-        @ConfigEntry.Category("dwarvenmines")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public DwarvenMines dwarvenMines = new DwarvenMines();
-
-        @ConfigEntry.Category("rift")
-        @ConfigEntry.Gui.CollapsibleObject()
-        public Rift rift = new Rift();
     }
 
     public static class Dungeons {

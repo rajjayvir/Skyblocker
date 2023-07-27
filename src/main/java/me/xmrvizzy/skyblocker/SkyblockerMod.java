@@ -3,7 +3,7 @@ package me.xmrvizzy.skyblocker;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import me.xmrvizzy.skyblocker.chat.ChatMessageListener;
-import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
+import me.xmrvizzy.skyblocker.config.voidConfig;
 import me.xmrvizzy.skyblocker.discord.DiscordRPCManager;
 import me.xmrvizzy.skyblocker.gui.ContainerSolverManager;
 import me.xmrvizzy.skyblocker.skyblock.*;
@@ -68,7 +68,7 @@ public class SkyblockerMod implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(this::tick);
         Utils.init();
         HotbarSlotLock.init();
-        SkyblockerConfig.init();
+        voidConfig.init();
         PriceInfoTooltip.init();
         WikiLookup.init();
         ItemRegistry.init();

@@ -6,7 +6,7 @@ public class LocationsConfig {
     public static class Locations {
         @ConfigEntry.Category("barn")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.Barn barn = new SkyblockerConfig.Barn();
+        public BamConfig.Barn barn = new BamConfig.Barn();
 
         @ConfigEntry.Category("dungeons")
         @ConfigEntry.Gui.CollapsibleObject()

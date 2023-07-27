@@ -173,11 +173,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class Barn {
-        public boolean solveHungryHiker = true;
-        public boolean solveTreasureHunter = true;
-    }
-
     public static class Rift {
         public boolean mirrorverseWaypoints = true;
         @ConfigEntry.BoundedDiscrete(min = 0, max = 5)

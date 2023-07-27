@@ -1,6 +1,7 @@
 package me.xmrvizzy.skyblocker.skyblock.quicknav;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import me.xmrvizzy.skyblocker.config.QuickNavConfig;
 import me.xmrvizzy.skyblocker.config.SkyblockerConfig;
 import me.xmrvizzy.skyblocker.utils.Utils;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
@@ -29,7 +30,7 @@ public class QuickNav {
 
     public static List<QuickNavButton> init(String screenTitle) {
         List<QuickNavButton> buttons = new ArrayList<>();
-        SkyblockerConfig.QuickNav data = SkyblockerConfig.get().quickNav;
+        QuickNavConfig.QuickNav data = SkyblockerConfig.get().quickNav;
         try {
             if (data.button1.render) buttons.add(parseButton(data.button1, screenTitle, 0));
             if (data.button2.render) buttons.add(parseButton(data.button2, screenTitle, 1));

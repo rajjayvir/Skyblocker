@@ -8,6 +8,6 @@ public class DwarvenMinesConfig {
         public boolean solveFetchur = true;
         public boolean solvePuzzler = true;
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.DwarvenHud dwarvenHud = new SkyblockerConfig.DwarvenHud();
+        public DwarvenHudConfig.DwarvenHud dwarvenHud = new DwarvenHudConfig.DwarvenHud();
     }
 }

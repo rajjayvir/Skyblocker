@@ -111,16 +111,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class DwarvenHud {
-        public boolean enabled = true;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        @ConfigEntry.Gui.Tooltip(count = 3)
-        public Style style = Style.SIMPLE;
-        public boolean enableBackground = true;
-        public int x = 10;
-        public int y = 10;
-    }
-
     public enum Style {
         SIMPLE,
         FANCY,

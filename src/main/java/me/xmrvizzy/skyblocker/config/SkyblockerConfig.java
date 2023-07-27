@@ -51,18 +51,6 @@ public class SkyblockerConfig implements ConfigData {
         }
     }
 
-    public static class BarPositions {
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public BarPosition healthBarPosition = BarPosition.LAYER1;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public BarPosition manaBarPosition = BarPosition.LAYER1;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public BarPosition defenceBarPosition = BarPosition.LAYER1;
-        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-        public BarPosition experienceBarPosition = BarPosition.LAYER1;
-
-    }
-
     public enum BarPosition {
         LAYER1,
         LAYER2,

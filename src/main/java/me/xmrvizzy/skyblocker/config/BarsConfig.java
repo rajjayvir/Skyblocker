@@ -8,7 +8,7 @@ public class BarsConfig {
 
         @ConfigEntry.Category("barpositions")
         @ConfigEntry.Gui.CollapsibleObject()
-        public SkyblockerConfig.BarPositions barpositions = new SkyblockerConfig.BarPositions();
+        public BarPositionsConfig.BarPositions barpositions = new BarPositionsConfig.BarPositions();
     }
 
     public static class Shortcuts {
